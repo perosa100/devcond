@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    ".vscode": false,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "node_modules": false, // exclui node modules da raiz do projeto,
+    ".jest": true,
+    ".babelrc": true,
+    ".eslintrc.json": true,
+    ".prettierrc": true,
+    "next-env.d.ts": true,
+    "tsconfig.json": false,
+    ".editorconfig": true,
+    "jest.config.js": true,
+    ".gitignore": true,
+    "yarn.lock": true,
+    "android": false,
+    "ios": true
+  }
+}
