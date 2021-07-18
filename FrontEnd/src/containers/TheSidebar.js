@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react'
 import {
   CCreateElement,
   CSidebar,
   CSidebarNav,
   CSidebarNavTitle,
-  CSidebarNavItem,
-} from "@coreui/react";
+  CSidebarNavItem
+} from '@coreui/react'
 
 // sidebar nav config
-import navigation from "./_nav";
+import navigation from './_nav'
 
 const TheSidebar = () => {
   return (
     <CSidebar>
       <CSidebarNav>
         <img
-          src="/homelogo.png"
+          src="/logo.png"
           className="mt-2 mb-3 ml-auto mr-auto"
           width="70"
           alt="Logo Dev"
@@ -24,12 +24,12 @@ const TheSidebar = () => {
           items={navigation}
           components={{
             CSidebarNavItem,
-            CSidebarNavTitle,
+            CSidebarNavTitle
           }}
         />
       </CSidebarNav>
     </CSidebar>
-  );
-};
+  )
+}
 
-export default React.memo(TheSidebar);
+export default React.memo(TheSidebar)

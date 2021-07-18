@@ -91,6 +91,7 @@ function Wall() {
     getList()
     getUnitList()
     getAreaList()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleloseModal = () => {

@@ -1,3 +1,5 @@
+import { UserResponse } from 'src/views/Users'
+
 const baseUrl = 'https://api.b7web.com.br/devcond/api/admin'
 
 const request = async (
@@ -38,7 +40,8 @@ const request = async (
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
-  var token = localStorage.getItem('@token/conddev')
+  let token = localStorage.getItem('@token/conddev')
+
   return {
     getToken: () => {
       return localStorage.getItem('@token/conddev')
@@ -156,6 +159,38 @@ export default () => {
     },
     removeReservation: async (id: string) => {
       let json = await request('delete', `/reservation/${id}`, {}, token)
+      return json
+    },
+    getWarnings: async () => {
+      let json = await request('get', `/warnings`, {}, token)
+      return json
+    },
+    updateWarning: async (id: string) => {
+      let json = await request('put', `/warning/${id}`, {}, token)
+      return json
+    },
+    getFoundAndLost: async () => {
+      let json = await request('get', `/foundandlost`, {}, token)
+      return json
+    },
+    updateFoundAndLost: async (id: string) => {
+      let json = await request('put', `/foundandlost/${id}`, {}, token)
+      return json
+    },
+    getUsers: async () => {
+      let json = await request('get', `/users`, {}, token)
+      return json
+    },
+    addUsers: async (data: UserResponse) => {
+      let json = await request('post', `/users`, data, token)
+      return json
+    },
+    updateUsers: async (id: string, data: UserResponse) => {
+      let json = await request('put', `/users/${id}`, data, token)
+      return json
+    },
+    removeUsers: async (id: string) => {
+      let json = await request('delete', `/user/${id}`, {}, token)
       return json
     }
   }
