@@ -75,7 +75,9 @@ function Reservations() {
     setShowModal(true)
   }
 
-  const handleEditButton = (index: number) => {
+  const handleEditButton = (id: string) => {
+    let index = list.findIndex((v) => v.id === id)
+
     setModalId(list[index]['id'])
     setModalTitleField(list[index]['title'])
     setShowModal(true)
@@ -119,9 +121,9 @@ function Reservations() {
     }
   }
 
-  const handleRemoveButton = async (index: number) => {
+  const handleRemoveButton = async (id: string) => {
     if (window.confirm('Tem certeza que deseja excluir?')) {
-      const result = await api.removeDocument(list[index]['id'])
+      const result = await api.removeDocument(id)
 
       if (result.error === '') {
         getList()
@@ -133,12 +135,11 @@ function Reservations() {
 
   const handleEveButton = (index: number) => {
     setShowModalPdf(true)
-    console.log(list[index]['fileurl'])
-
     setUrlPDF(list[index]['fileurl'])
   }
 
-  const handleDownloadButton = (index: number) => {
+  const handleDownloadButton = (id: string) => {
+    let index = list.findIndex((v) => v.id === id)
     window.open(list[index]['fileurl'])
   }
 
@@ -165,18 +166,18 @@ function Reservations() {
                 pagination
                 itemsPerPage={2}
                 scopedSlots={{
-                  actions: (_: any, index: number) => (
+                  actions: (item: any, index: number) => (
                     <td key={index}>
                       <CButtonGroup>
                         <CButton
                           color="success"
-                          onClick={() => handleEveButton(index)}
+                          onClick={() => handleEveButton(item.id)}
                         >
                           Visualizar
                         </CButton>
                         <CButton
                           color="warning"
-                          onClick={() => handleDownloadButton(index)}
+                          onClick={() => handleDownloadButton(item.id)}
                           className="d-flex"
                         >
                           <CIcon name="cil-cloud-download" />
@@ -184,13 +185,13 @@ function Reservations() {
                         </CButton>
                         <CButton
                           color="info"
-                          onClick={() => handleEditButton(index)}
+                          onClick={() => handleEditButton(item.id)}
                         >
                           Editar
                         </CButton>
                         <CButton
                           color="danger"
-                          onClick={() => handleRemoveButton(index)}
+                          onClick={() => handleRemoveButton(item.id)}
                         >
                           Excluir
                         </CButton>

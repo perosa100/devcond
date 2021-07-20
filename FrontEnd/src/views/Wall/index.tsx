@@ -65,7 +65,8 @@ function Wall() {
     setShowModal(true)
   }
 
-  const handleEditButton = (index: number) => {
+  const handleEditButton = (id: string) => {
+    let index = list.findIndex((v) => v.id === id)
     setModalId(list[index]['id'])
     setModalTitleField(list[index]['title'])
     setModalBodyField(list[index]['body'])
@@ -101,9 +102,9 @@ function Wall() {
     }
   }
 
-  const handleRemoveButton = async (index: number) => {
+  const handleRemoveButton = async (id: string) => {
     if (window.confirm('Tem certeza que deseja excluir?')) {
-      const result = await api.removeWall(list[index]['id'])
+      const result = await api.removeWall(id)
 
       if (result.error === '') {
         getList()
@@ -135,18 +136,18 @@ function Wall() {
                 pagination
                 itemsPerPage={2}
                 scopedSlots={{
-                  actions: (_: any, index: number) => (
+                  actions: (item: any, index: number) => (
                     <td>
                       <CButtonGroup key={index}>
                         <CButton
                           color="info"
-                          onClick={() => handleEditButton(index)}
+                          onClick={() => handleEditButton(item.id)}
                         >
                           Editar
                         </CButton>
                         <CButton
                           color="danger"
-                          onClick={() => handleRemoveButton(index)}
+                          onClick={() => handleRemoveButton(item.id)}
                         >
                           Excluir
                         </CButton>

@@ -8,6 +8,8 @@ const Reservations = React.lazy(() => import('./views/Reservations'))
 const Warnings = React.lazy(() => import('./views/Warnings'))
 const FoundAndLost = React.lazy(() => import('./views/FoundAndLost'))
 const Users = React.lazy(() => import('./views/Users'))
+const CommonAreas = React.lazy(() => import('./views/CommonAreas'))
+const Units = React.lazy(() => import('./views/Units'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -18,7 +20,9 @@ const routes = [
   { path: '/reservations', name: 'Reservations', component: Reservations },
   { path: '/warnings', name: 'Warnings', component: Warnings },
   { path: '/foundAndLost', name: 'FoundAndLost', component: FoundAndLost },
-  { path: '/users', name: 'Users', component: Users }
+  { path: '/users', name: 'Users', component: Users },
+  { path: '/commonAreas', name: 'CommonAreas', component: CommonAreas },
+  { path: '/units', name: 'Units', component: Units }
 ]
 
 export default routes

@@ -12,7 +12,7 @@ import navigation from './_nav'
 
 const TheSidebar = () => {
   return (
-    <CSidebar>
+    <CSidebar size="sm">
       <CSidebarNav>
         <img
           src="/logo.png"

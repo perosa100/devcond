@@ -145,9 +145,9 @@ function Wall() {
     }
   }
 
-  const handleRemoveButton = async (index: number) => {
+  const handleRemoveButton = async (id: string) => {
     if (window.confirm('Tem certeza que deseja excluir?')) {
-      const result = await api.removeReservation(list[index]['id'])
+      const result = await api.removeReservation(id)
 
       if (result.error === '') {
         getList()
@@ -205,7 +205,7 @@ function Wall() {
                         </CButton>
                         <CButton
                           color="danger"
-                          onClick={() => handleRemoveButton(index)}
+                          onClick={() => handleRemoveButton(item.id)}
                         >
                           Excluir
                         </CButton>

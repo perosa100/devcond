@@ -186,11 +186,75 @@ export default () => {
       return json
     },
     updateUsers: async (id: string, data: UserResponse) => {
-      let json = await request('put', `/users/${id}`, data, token)
+      let json = await request('put', `/user/${id}`, data, token)
       return json
     },
     removeUsers: async (id: string) => {
       let json = await request('delete', `/user/${id}`, {}, token)
+      return json
+    },
+    addArea: async (data: any) => {
+      console.log(data, 'data comoom')
+
+      let formData = new FormData()
+
+      for (let i in data) {
+        formData.append(i, data[i])
+      }
+      let req = await fetch(`${baseUrl}/areas`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: formData
+      })
+      console.log(req, 'req')
+
+      let json = await req.json()
+
+      return json
+    },
+    updateArea: async (id: string, data: any) => {
+      let formData = new FormData()
+
+      for (let i in data) {
+        formData.append(i, data[i])
+      }
+
+      let req = await fetch(`${baseUrl}/area/${id}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: formData
+      })
+
+      let json = await req.json()
+
+      return json
+    },
+    updateAreaAllowerd: async (id: string) => {
+      let json = await request('put', `/area/${id}/allowed`, {}, token)
+      return json
+    },
+    removeArea: async (id: string) => {
+      let json = await request('delete', `/area/${id}`, {}, token)
+      return json
+    },
+    searchQuery: async (query: string) => {
+      let json = await request('get', `/users/search`, { q: query }, token)
+      return json
+    },
+    addUnit: async (data: any) => {
+      let json = await request('post', `/units`, data, token)
+      return json
+    },
+    updateUnit: async (id: string, data: any) => {
+      let json = await request('put', `/unit/${id}`, data, token)
+      return json
+    },
+    removeUnit: async (id: string) => {
+      let json = await request('delete', `/unit/${id}`, {}, token)
       return json
     }
   }
