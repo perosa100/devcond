@@ -154,7 +154,7 @@ function Users() {
   }
 
   const handleRemoveButton = async (id: string) => {
-    if (window.confirm('Tem certeza que deseja excluir?')) {
+    if (window.confirm('Tem certeza que deseja excluirr?')) {
       const result = await api.removeUsers(id)
 
       if (result.error === '') {
