@@ -1,15 +1,13 @@
-import React from 'react'
-
-const Dashboard = React.lazy(() => import('./views/Dashboard'))
-const Logout = React.lazy(() => import('./views/Logout'))
-const Wall = React.lazy(() => import('./views/Wall'))
-const Documents = React.lazy(() => import('./views/Documents'))
-const Reservations = React.lazy(() => import('./views/Reservations'))
-const Warnings = React.lazy(() => import('./views/Warnings'))
-const FoundAndLost = React.lazy(() => import('./views/FoundAndLost'))
-const Users = React.lazy(() => import('./views/Users'))
-const CommonAreas = React.lazy(() => import('./views/CommonAreas'))
-const Units = React.lazy(() => import('./views/Units'))
+import CommonAreas from 'views/CommonAreas'
+import Dashboard from 'views/Dashboard'
+import Reservations from 'views/Documents'
+import Documents from 'views/Documents'
+import FoundAndLost from 'views/FoundAndLost'
+import Logout from 'views/Logout'
+import Wall from 'views/Reservations'
+import Units from 'views/Units'
+import Users from 'views/Users'
+import Warnings from 'views/Warnings'
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },

@@ -1,5 +1,7 @@
+import { TheLayout } from 'containers'
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Login from 'views/login/Login'
 import './scss/style.scss'
 
 const loading = (
@@ -9,10 +11,8 @@ const loading = (
 )
 
 // Containers
-const TheLayout = React.lazy(() => import('./containers/TheLayout'))
 
 // Pages
-const Login = React.lazy(() => import('./views/login/Login'))
 
 const App = () => {
   return (

@@ -1,4 +1,4 @@
-import { UserResponse } from 'src/views/Users'
+import { UserResponse } from 'views/Users'
 
 const baseUrl = 'https://api.b7web.com.br/devcond/api/admin'
 
